@@ -1,0 +1,2 @@
+#!/bin/bash
+awk 'BEGIN{w="ewatr";s="ti.r";b="bestchol";for(i=0;i<length(ENVIRON["WATER"]);i++)x=x*5+index(w,substr(ENVIRON["WATER"],i+1,1))-1;for(i=0;i<length(ENVIRON["STIR"]);i++)y=y*4+index(s,substr(ENVIRON["STIR"],i+1,1))-1;n=x+y;do{r=n%8;z=substr(b,r+1,1)z;n=int(n/8)}while(n);print z}'
