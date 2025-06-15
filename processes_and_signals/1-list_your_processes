@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Displays all currently running processes with user info,
-# no matter the TTY, in a hierarchical tree format.
+# Display all running processes with start time including seconds
 
-ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,command --forest
+ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,lstart,time,command --forest | \
+awk 'NR==1 {print "USER       STARTED COMMAND"; next} {printf "%-10s %8s %s\n", $1, $6":"$7":"$8, $12}'
 
