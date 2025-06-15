@@ -1,2 +1,2 @@
 #!/bin/bash
-awk 'BEGIN{w="ewatr";s="ti.r";b="bestchol";for(i=0;i<length(ENVIRON["WATER"]);i++)x=x*5+index(w,substr(ENVIRON["WATER"],i+1,1))-1;for(i=0;i<length(ENVIRON["STIR"]);i++)y=y*4+index(s,substr(ENVIRON["STIR"],i+1,1))-1;n=x+y;do{r=n%8;z=substr(b,r+1,1)z;n=int(n/8)}while(n);print z}'
+python3 -c 'w,b,s=map("".join,[["e","w","a","t","r"],["b","e","s","t","c","h","o","l"],["t","i",".","r"]]);a=sum(w.index(c)*5**i for i,c in enumerate(reversed(__import__("os").environ["WATER"])));d=sum(s.index(c)*4**i for i,c in enumerate(reversed(__import__("os").environ["STIR"])));n=a+d;r="";exec("while n:r=b[n%8]+r;n//=8");print(r)'
